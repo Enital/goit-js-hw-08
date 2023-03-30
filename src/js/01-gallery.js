@@ -28,7 +28,7 @@ let lightbox = new SimpleLightbox(".gallery .gallery__link", {
     enableKeyboard: true,
 });
 
-// //=========================================================================================================================================
+//=========================================================================================================================================
 // const galleryEl = document.querySelector('.gallery');
 // function createGalleryItem(items) {
 //   return items
