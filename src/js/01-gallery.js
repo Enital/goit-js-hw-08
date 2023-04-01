@@ -17,9 +17,9 @@ function createGalleryItem(items) {
 }
 
 const galleryEl = document.querySelector(".gallery");
-const addGalleryItem = createGalleryItem(galleryItems);
+const addGalleryItemEl = createGalleryItem(galleryItems);
 
-galleryEl.insertAdjacentHTML("afterbegin", addGalleryItem);
+galleryEl.insertAdjacentHTML("afterbegin", addGalleryItemEl);
 
 let lightbox = new SimpleLightbox(".gallery .gallery__link", {    
     captionsData: 'alt',
