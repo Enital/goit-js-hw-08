@@ -1,5 +1,5 @@
 import throttle from 'lodash.throttle';
-const formEl = document.querySelector(".feedback-form");
+const formEl = document.getElementsByClassName('feedback-form');
 const inputEmailEl = formEl.elements.email;
 const textareaMessageEl = formEl.elements.message;
 let formData = {};
@@ -13,23 +13,22 @@ function addValueFromLocalStorage() {
     if (savedMessage) { 
         const { email = "", message = "" } = savedMessageFromJSON;
         inputEmailEl.value = email;
-        textareaMessageEl.value = message;
+        inputMessageEl.value = message;
     } 
     
 }
 
+formEl.addEventListener("input", throttle(inputData, 500));
 
-formEl.addEventListener("input", throttle(formInput, 500));
-
-function formInput(event) {
+function inputData() {
     formData.email = inputEmailEl.value;
-    formData.message = textareaMessageEl.value;
+    formData.message = inputMessageEl.value;
 
     const formDataJson=JSON.stringify(formData)
     try {
         localStorage.setItem(STORAGE_KEY, formDataJson)
     } catch(error) {
-        console.log("We have some problems with loading. Issue:", error)
+        console.log("Error", error)
     }
 }
 
@@ -45,4 +44,3 @@ function submitFormBtn(event) {
     localStorage.removeItem(STORAGE_KEY)
     event.currentTarget.reset()
 }
-
