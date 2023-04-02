@@ -1,13 +1,7 @@
 const iframeEl=document.querySelector("#vimeo-player")
 import Player from '@vimeo/player';
 import throttle from 'lodash.throttle';
-const player = new Player(iframeEl,
-    // options:
-    {
-    id: 19231868,
-    width: 640
-    }
-);
+const player = new Player(iframeEl);
 
 player.on('timeupdate', throttle(function(data) {
     let timeOnPlayer = data.seconds;
