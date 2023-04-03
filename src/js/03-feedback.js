@@ -34,8 +34,9 @@ formEl.addEventListener("submit", submitFormBtn)
 
 function submitFormBtn(event) {
     event.preventDefault();
-    if (!formData.hasOwnProperty("email") && !formData.hasOwnProperty("message")) {
-        return
+    if (!formData.email || !formData.message) {
+        console.error('Please, fill in all the fields');
+        return;
     }
     console.log(formData);
     formData = {};
