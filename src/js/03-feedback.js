@@ -14,6 +14,8 @@ function addDataIfResetPage() {
         const { email = "", message = "" } = savedMessageFromJSON;
         inputEmailEl.value = email;
         inputMessageEl.value = message;
+        formData.email = inputEmailEl.value;
+        formData.message = inputMessageEl.value;
     }     
 }
 
